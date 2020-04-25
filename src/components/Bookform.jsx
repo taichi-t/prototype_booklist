@@ -5,8 +5,14 @@ export const Bookform = () => {
   const { addBook } = useContext(BookContext);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addBook(title, author);
+    setTitle("");
+    setAuthor("");
+  };
   return (
-    <form action="">
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="book title"
